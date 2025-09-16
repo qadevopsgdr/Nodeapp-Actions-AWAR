@@ -21,4 +21,5 @@ jobs:
             npm install
             node index.js
             node --version
+            npm --version
     
