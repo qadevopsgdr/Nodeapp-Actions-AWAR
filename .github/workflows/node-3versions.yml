@@ -5,7 +5,7 @@ on:
     - "*"
 jobs:
   Node-Versions-16to18:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
         matrix:
