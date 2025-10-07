@@ -1,0 +1,26 @@
+name: matrix test with multiple Operating Systems
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-job:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [16, 17, 18]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: node -v
+      - run: echo "Running on ${{ matrix.os }} with Node.js ${{ matrix.node }}"
+      - run: echo "This is a matrix job running on multiple operating systems and Node.js versions"
+      - run: echo "Current OS: ${{ matrix.os }}, Node.js Version: ${{ matrix.node }}"
